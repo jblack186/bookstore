@@ -1,0 +1,21 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "This application is going to be styled after the audible app. Data will be retirieved through googles book api. Users will be authenticated through google as well.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jblack186/bookstore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jblack186/bookstore/issues"
+  },
+  "homepage": "https://github.com/jblack186/bookstore#readme"
+}
