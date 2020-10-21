@@ -14,6 +14,7 @@
 
 .top-bar-container {
   background: #243139;  
+  width: 100vw;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -38,8 +39,9 @@
   height: 35px;
 }
 
-.bars {
+.top-item {
   @include topItems();
+  cursor: pointer;
 
 }
 

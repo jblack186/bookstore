@@ -8,12 +8,12 @@ function TopBar() {
   return (
     <div className='top-bar-container'>
       <div className='top-items-one'>
-        <FontAwesomeIcon className='bars' icon={faBars} />
+        <FontAwesomeIcon className='top-item bars' icon={faBars} />
         <img className='store-logo' src={Selection} alt='store-logo' />
       </div>
       <div className='top-items-two'>
-        <FontAwesomeIcon className='bars' icon={faShoppingCart} />
-        <FontAwesomeIcon className='bars' icon={faSearch} />
+        <FontAwesomeIcon className='top-item' icon={faShoppingCart} />
+        <FontAwesomeIcon className='top-item' icon={faSearch} />
       </div>
 
 

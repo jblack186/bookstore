@@ -1,5 +1,6 @@
 .top-bar-container {
   background: #243139;
+  width: 100vw;
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,8 +37,9 @@
   height: 35px;
 }
 
-.bars {
+.top-item {
   height: 50px;
   color: white;
+  cursor: pointer;
 }
 /*# sourceMappingURL=TopBar.css.map */
