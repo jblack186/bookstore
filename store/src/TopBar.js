@@ -12,7 +12,9 @@ function TopBar() {
         <img className='store-logo' src={Selection} alt='store-logo' />
       </div>
       <div className='top-items-two'>
-        <FontAwesomeIcon className='top-item' icon={faShoppingCart} />
+        <div className='cart'>
+          <FontAwesomeIcon className='top-item' icon={faShoppingCart} />
+        </div>
         <FontAwesomeIcon className='top-item' icon={faSearch} />
       </div>
 

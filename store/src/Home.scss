@@ -1,4 +1,32 @@
-.hero {
-  height: 70vh;
+// .full-container {
+//   height: 100vh;
+// }
+
+.home-container {
+  min-height: 100vh;
+
+}
+
+.home-container img {
+  width: 100%;
+  min-height: 100vh;
+
+}
+
+.recommendations {
+  height: 300px;
   width: 100vw;
+  background-color: black;
+  position: relative;
+
+}
+
+.rec-list {
+  position: absolute;
+  top: 50%;
+  margin-top: -125px;
+  height: 250px;
+  background: #243139;  
+  width: 100vw;
+
 }
