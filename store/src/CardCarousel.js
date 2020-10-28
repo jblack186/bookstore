@@ -1,15 +1,47 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import './CardCarousel.css';
+import axios from 'axios'
 
 
-const CardCarousel = () => {
+const CardCarousel = (props) => {
+  const [library, setLibrary] = useState([]);
+  const [books, setBooks] = useState([]);
+  const [result, setResult] = useState([]);
+  const [apiKey, setApiKey] = useState("AIzaSyCnGiOUTd7RBgYr-c-_AzYRmg3fQjaVBO8");
+
+
+  useEffect(() => {
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=fiction&${apiKey}&maxResults=10`)
+      .then( res => {
+        console.log(res.data.items)
+        setBooks(res.data.items)
+
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
+console.log('books', books)
+
   const [indexes, setIndexes] = useState({
     previousIndex: 0,
     currentIndex: 0,
     nextIndex: 1,
   });
 
-
+  // useEffect(() => {
+  //   props.books.map(item => {
+  //    setLibrary(prevState => {
+  //      return {
+  //        ...prevState,
+  //        pic: item.volumeInfo.imageLinks.thumbnail
+  //      }
+  //    })
+     
+  //   })
+  
+  // }, [props])
+console.log(library)
   
   const cardItems = [
     {
@@ -76,17 +108,17 @@ const CardCarousel = () => {
 
 	return (
     <div className="container">
-    <button onClick={handleCardTransition}>Transition to Next</button>
+      
+      {books.map(item => {
+       
+      return <div>
+              <h2>ujg</h2>
+              <p>       <img style={{width: '50px'}} src={item.volumeInfo.imageLinks.thumbnail} /></p>
+            </div>
+
+      }) }
+    {/* <button onClick={handleCardTransition}>Transition to Next</button> */}
     <ul className="card-carousel">
-      {cardItems.map((card, index) => (
-        <li
-          key={card.id}
-          className={`card ${determineClasses(indexes, index)}`}
-        >
-          <h2>{card.title}</h2>
-          <p>{card.copy}</p>
-        </li>
-      ))}
     </ul>
   </div>
   );

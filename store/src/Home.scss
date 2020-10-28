@@ -3,18 +3,30 @@
 // }
 
 .home-container {
-  min-height: 100vh;
+  height: 350px;
+  position: relative;
+  width: 100vw;
 
 }
 
 .home-container img {
   width: 100%;
-  min-height: 100vh;
 
 }
 
+.header {
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  top: 50%;
+  margin-top: -100px;
+  left: 50%;
+  margin-left: -50%;
+}
+
+
 .recommendations {
-  height: 300px;
+  height: 430px;
   width: 100vw;
   background-color: black;
   position: relative;
@@ -24,9 +36,14 @@
 .rec-list {
   position: absolute;
   top: 50%;
-  margin-top: -125px;
-  height: 250px;
+  margin-top: -175px;
+  height: 350px;
   background: #243139;  
   width: 100vw;
-
 }
+
+// .card-component {
+//   height: 200px;
+//   top: 50%;
+//   margin-top: -100px;
+// }
