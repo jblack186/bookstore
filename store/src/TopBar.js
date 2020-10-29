@@ -1,14 +1,39 @@
-import React from 'react';
-import './TopBar.scss';
+import React, { useState } from 'react';
+import './TopBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faShoppingCart, faSearch, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import Selection from './img/Selection.png';
 
-function TopBar() {
+
+
+const TopBar = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const openSlideMenu = () => {
+    setIsNavOpen(true);
+  }
+
+  const closeSlideMenu = () => {
+    setIsNavOpen(false);
+  }
+  
+  
   return (
     <div className='top-bar-container'>
+        <ul className="slide-nav">
+        <a href="#">Log In</a>
+        <a href="#">Sign Up</a>
+        <a href="#">Sign Out</a>
+      </ul>
+
       <div className='top-items-one'>
-        <FontAwesomeIcon className='top-item bars' icon={faBars} />
+      <a href="#" onClick={openSlideMenu}>
+            <FontAwesomeIcon className="fa fa-bars" icon={faBars} style={{color: 'black', fontSize: '20px'}}/>
+        </a>
+
+          {/* <a href="#" onClick={closeSlideMenu}>
+          <FontAwesomeIcon className='close-icon' icon={faWindowClose} style={{color: 'black', fontSize: '20px', }}/>
+        </a> */}
         <img className='store-logo' src={Selection} alt='store-logo' />
       </div>
       <div className='top-items-two'>

@@ -42,4 +42,7 @@
   color: white;
   cursor: pointer;
 }
-/*# sourceMappingURL=TopBar.css.map */
+
+.slide-nav {
+  display: none;
+}

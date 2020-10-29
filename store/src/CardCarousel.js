@@ -109,12 +109,16 @@ console.log(library)
 	return (
     <div className="container">
       
-      {books.map(item => {
+      {books.map((item, index) => {
        
-      return <div>
-              <h2>ujg</h2>
-              <p>       <img style={{width: '50px'}} src={item.volumeInfo.imageLinks.thumbnail} /></p>
-            </div>
+      return <li className={`card ${determineClasses(indexes, index)}`}>
+             
+              <p>      
+                <h2>Recommended for You</h2>
+                 <a href={item.volumeInfo.infoLink}> <img  src={item.volumeInfo.imageLinks.thumbnail} />
+                 </a>
+                 </p>
+            </li >
 
       }) }
     {/* <button onClick={handleCardTransition}>Transition to Next</button> */}
