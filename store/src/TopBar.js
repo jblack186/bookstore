@@ -10,7 +10,7 @@ const TopBar = (props) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const openSlideMenu = () => {
-    setIsNavOpen(true);
+    setIsNavOpen(!isNavOpen);
   }
 
   const closeSlideMenu = () => {
@@ -36,13 +36,21 @@ const TopBar = (props) => {
       </div>
       <div className='top-items-one'>
       <a href="#" onClick={openSlideMenu}>
-            <FontAwesomeIcon className="fa fa-bars" icon={faBars} style={{color: 'black', fontSize: '20px'}}/>
+            <FontAwesomeIcon className="fa fa-bars" icon={faBars} />
         </a>
 
           {/* <a href="#" onClick={closeSlideMenu}>
           <FontAwesomeIcon className='close-icon' icon={faWindowClose} style={{color: 'black', fontSize: '20px', }}/>
         </a> */}
         <img className='store-logo' src={Selection} alt='store-logo' />
+        <div className='login'>
+          <a href="#" onClick={openSlideMenu}>
+              Login
+          </a>
+          <a href="#" onClick={openSlideMenu}>
+              Signup
+          </a>
+        </div>
       </div>
       <div className='top-items-two'>
         <div className='cart'>
