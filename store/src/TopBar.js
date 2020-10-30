@@ -44,12 +44,12 @@ const TopBar = (props) => {
         </a> */}
         <img className='store-logo' src={Selection} alt='store-logo' />
         <div className='login'>
-          <a href="#" onClick={openSlideMenu}>
-              Login
-          </a>
-          <a href="#" onClick={openSlideMenu}>
-              Signup
-          </a>
+        <a href="#" onClick={openSlideMenu}>
+            Login
+        </a>
+        <a href="#" onClick={openSlideMenu}>
+            Signup
+        </a>
         </div>
       </div>
       <div className='top-items-two'>

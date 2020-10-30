@@ -101,6 +101,17 @@
   height: 100vh;
   display: flex;
   align-items: center;
+  animation-name: slideOut;
+  animation-duration: .3s;
+}
+
+@keyframes slideOut {
+  from {
+    width: 0%
+  }
+  to {
+    width: 170px;
+  }
 }
 
 
@@ -136,7 +147,7 @@
 
 .blur {
   width: 100vw;
-  background-color: white;
+  background: #243139;
   z-index: 5;
   margin-top: 16px;
   opacity: .5;
