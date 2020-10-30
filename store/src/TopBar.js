@@ -6,7 +6,7 @@ import Selection from './img/Selection.png';
 
 
 
-const TopBar = () => {
+const TopBar = (props) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const openSlideMenu = () => {
@@ -16,16 +16,24 @@ const TopBar = () => {
   const closeSlideMenu = () => {
     setIsNavOpen(false);
   }
-  
+  console.log(props)
   
   return (
     <div className='top-bar-container'>
-        <ul className="slide-nav">
-        <a href="#">Log In</a>
-        <a href="#">Sign Up</a>
-        <a href="#">Sign Out</a>
+      <div className="nav-blur-container">
+      <div className="nav-blur-flex">
+      <ul className={isNavOpen === true ? "slide-nav" : "close-nav"}>
+        <div className='nav-list'>
+          <a href="#">Log In</a>
+          <a href="#">Sign Up</a>
+          <a href="#">Sign Out</a>
+        </div>
       </ul>
+      <div onClick={closeSlideMenu} className="blur">
+      </div>
+</div>
 
+      </div>
       <div className='top-items-one'>
       <a href="#" onClick={openSlideMenu}>
             <FontAwesomeIcon className="fa fa-bars" icon={faBars} style={{color: 'black', fontSize: '20px'}}/>

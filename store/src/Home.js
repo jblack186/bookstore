@@ -6,11 +6,17 @@ import Card from './CardCarousel';
 import Books from './img/bookonshelf.png';
 
 const Home = (props) => {
+  const [isNavOpenClosed, setIsNavOpenClosed] = useState(false)
+
+  const closeNav = () => {
+    setIsNavOpenClosed(true);
+  }
+
   return (
     <>
-      <TopBar />
+      <TopBar isNavOpenClosed={isNavOpenClosed} />
       <div className='home-container'>
-        <img className="hero" src={Hero} alt="store-hero" />
+        <img onClick={closeNav} className="hero" src={Hero} alt="store-hero" />
         <section className='header'>
           <img style={{width: '50px'}} src={Books} alt='book-logo' />
           <h1>The best online Selection </h1>
