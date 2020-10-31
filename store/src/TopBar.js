@@ -39,9 +39,6 @@ const TopBar = (props) => {
             <FontAwesomeIcon className="fa fa-bars" icon={faBars} />
         </a>
 
-          {/* <a href="#" onClick={closeSlideMenu}>
-          <FontAwesomeIcon className='close-icon' icon={faWindowClose} style={{color: 'black', fontSize: '20px', }}/>
-        </a> */}
         <img className='store-logo' src={Selection} alt='store-logo' />
         <div className='login'>
         <a href="#" onClick={openSlideMenu}>

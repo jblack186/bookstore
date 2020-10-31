@@ -3,18 +3,24 @@
 // }
 
 .home-container {
-  // height: 350px;
+  height: 40vh;
   position: relative;
   width: 100vw;
   padding: 0;
   margin: 0;
-  background-color: black;
 
 }
 
+@media screen and (max-width: 700px) {
+  .home-container {
+    height: 80vh;
+  }
+}
+
+
 .home-container img {
   width: 100%;
-  height: 40vh;
+  height: 110%;
 
 }
 
@@ -40,6 +46,8 @@ p {
   width: 75%
 }
 
+
+
   button {
     background-color: orange;
     font-size: 1.2rem;
@@ -51,28 +59,72 @@ p {
   }
 }
 
+.header img {
+  width: 50px;
+}
+
+@media screen and (max-width: 700px) {
+  .header img {
+    height: 50px;
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .header {
+    height: 40vh;
+    position: absolute;
+    top: 50%;
+    margin-top: -30vh;
+  }
+}
+
+
 
 
 
 .recommendations {
-  height: 430px;
+  height: 50vh;
   width: 100vw;
   background-color: black;
   position: relative;
 
 }
 
-.rec-list {
-  position: absolute;
-  top: 50%;
-  margin-top: -175px;
-  height: 350px;
-  background: #243139;  
-  width: 100vw;
+@media screen and (max-width: 700px) {
+  .recommendations {
+    height: 50vh;
+  }
 }
+
+
+// .rec-list {
+//   position: absolute;
+//   top: 50%;
+//   margin-top: -175px;
+//   height: 350px;
+//   background: #243139;  
+//   width: 100vw;
+// }
+
+@media screen and (max-width: 700px) {
+  .rec-list {
+    height: 30vh;
+    top: 50%;
+    margin-top: -15vh;
+  
+  }
+}
+
 
 // .card-component {
 //   height: 200px;
 //   top: 50%;
 //   margin-top: -100px;
 // }
+
+@media screen and (max-width: 700px) {
+  .foot {
+    display: none;
+  }
+}
