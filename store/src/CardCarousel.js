@@ -1,5 +1,7 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import './CardCarousel.css';
+import React, {useState, useEffect} from 'react';
+import Pic from './img/Selection.png';
+import Carousel, {WithStyles} from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import axios from 'axios'
 
 
@@ -21,111 +23,107 @@ const CardCarousel = (props) => {
         console.log(err)
       })
   }, [])
-console.log('books', books)
 
-  const [indexes, setIndexes] = useState({
-    previousIndex: 0,
-    currentIndex: 0,
-    nextIndex: 1,
-  });
+const responsive = {
 
-  // useEffect(() => {
-  //   props.books.map(item => {
-  //    setLibrary(prevState => {
-  //      return {
-  //        ...prevState,
-  //        pic: item.volumeInfo.imageLinks.thumbnail
-  //      }
-  //    })
-     
-  //   })
-  
-  // }, [props])
-console.log(library)
-  
-  const cardItems = [
-    {
-      id: 1,
-      title: 'Stacked Card Carousel',
-      copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet dui scelerisque, tempus dui non, blandit nulla. Etiam sed interdum est.',
-    },
-    {
-      id: 2,
-      title: 'Second Item',
-      copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
-    {
-      id: 3,
-      title: 'A Third Card',
-      copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet dui scelerisque, tempus dui non, blandit nulla.',
-    },
-    {
-      id: 4,
-      title: 'Fourth',
-      copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
-  ];
-
-  function determineClasses(indexes, cardIndex) {
-    if (indexes.currentIndex === cardIndex) {
-      return 'active';
-    } else if (indexes.nextIndex === cardIndex) {
-      return 'next';
-    } else if (indexes.previousIndex === cardIndex) {
-      return 'prev';
-    }
-    return 'inactive';
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+    partialVisibilityGutter: 45
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+    partialVisibilityGutter: 40
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+    partialVisibilityGutter: 30 
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    partialVisibilityGutter: 30
   }
+};
 
-  const handleCardTransition = useCallback(() => {
-    // If we've reached the end, start again from the first card,
-    // but carry previous value over
-    if (indexes.currentIndex >= cardItems.length - 1) {
-      setIndexes({
-        previousIndex: cardItems.length - 1,
-        currentIndex: 0,
-        nextIndex: 1,
-      });
-    } else {
-      setIndexes((prevState) => ({
-        previousIndex: prevState.currentIndex,
-        currentIndex: prevState.currentIndex + 1,
-        nextIndex: prevState.currentIndex + 2 === cardItems.length ? 0 : prevState.currentIndex + 2,
-      }));
-    }
-  }, [indexes.currentIndex]);
+return (
+  <div>
+    <h2>Recommended for You</h2>
 
-  useEffect(() => {
-    const transitionInterval = setInterval(() => {
-      handleCardTransition();
-    }, 4000); // The interval value could also be a prop
-  
-    // Clear the interval when the component unmounts!
-    return () => clearInterval(transitionInterval);
-  }, [handleCardTransition, indexes]);
-  
-  // const CardCarousel = () => { ... }
-
-	return (
-    <div className="container">
-      
+    <Carousel
+      additionalTransfrom={0}
+      arrows
+      autoPlay
+      autoPlaySpeed={3000}
+      centerMode
+      className=""
+      containerClass="container"
+      dotListClass=""
+      draggable
+      focusOnSelect={false}
+      infinite
+      itemClass=""
+      keyBoardControl
+      minimumTouchDrag={80}
+      renderButtonGroupOutside={false}
+      renderDotsOutside={false}
+        responsive={{
+          desktop: {
+            breakpoint: {
+              max: 3000,
+              min: 1024
+            },
+            items: 3,
+            partialVisibilityGutter: 40
+          },
+          mobile: {
+            breakpoint: {
+              max: 464,
+              min: 0
+            },
+            items: 1,
+            partialVisibilityGutter: 30
+          },
+          tablet: {
+            breakpoint: {
+              max: 1024,
+              min: 464
+            },
+            items: 2,
+            partialVisibilityGutter: 30
+          }
+        }}
+        showDots={false}
+        sliderClass=""
+        slidesToSlide={2}
+        swipeable
+        transitionDuration={1000}
+      >
       {books.map((item, index) => {
-       
-      return <li className={`card ${determineClasses(indexes, index)}`}>
-             
-              <p>      
-                <h2>Recommended for You</h2>
-                 <a href={item.volumeInfo.infoLink}> <img  src={item.volumeInfo.imageLinks.thumbnail} />
-                 </a>
-                 </p>
-            </li >
+            
+            return <li>
+                    
+                    <p>
+                            
+                    <a href={item.volumeInfo.infoLink}><a
+          description="React Carousel with Server Side Rendering Support – Part 2"
+          headline="w3js.com - web front-end studio"
+          image={item.volumeInfo.imageLinks.thumbnail}
+        /></a>
+                        <img  src={item.volumeInfo.imageLinks.thumbnail} />
+                        
+                        </p>
+                  </li >
+      
+            }) } 
 
-      }) }
-    {/* <button onClick={handleCardTransition}>Transition to Next</button> */}
-    <ul className="card-carousel">
-    </ul>
+    </Carousel>
+
   </div>
-  );
-}
+)
 
+}
 export default CardCarousel;
