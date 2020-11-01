@@ -39,7 +39,7 @@ const TopBar = (props) => {
             <FontAwesomeIcon className="fa fa-bars" icon={faBars} />
         </a>
 
-        <img className='store-logo' src={Selection} alt='store-logo' />
+        {props.homepage ? <img className='store-logo' src={Selection} alt='store-logo' /> : <p className='browse'>Browse</p>}
         <div className='login'>
         <a href="#" onClick={openSlideMenu}>
             Login

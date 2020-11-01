@@ -98,20 +98,12 @@ p {
 }
 
 
-// .rec-list {
-//   position: absolute;
-//   top: 50%;
-//   margin-top: -175px;
-//   height: 350px;
-//   background: #243139;  
-//   width: 100vw;
-// }
+.rec-list {
+  height: 100%;
+}
 
 @media screen and (max-width: 700px) {
   .rec-list {
-    height: 30vh;
-    top: 50%;
-    margin-top: -15vh;
   
   }
 }

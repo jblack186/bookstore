@@ -33,6 +33,12 @@
   }
 }
 
+.top-items-one p {
+  margin: 0;
+  color: white;
+  padding-right: 3rem;
+}
+
 @media screen and (min-width: 700px) {
   .login {
     display: flex;
@@ -96,8 +102,10 @@
   /* position: absolute; */
   /* top: 35px; */
   z-index: 9999;
+  margin-top: 15px;
+
   padding: 0;
-  background-color: black;
+  background-color: #1f2b33;
   height: 100vh;
   display: flex;
   align-items: center;

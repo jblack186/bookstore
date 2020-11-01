@@ -23,7 +23,15 @@
 .top-items-one {
   width: 50%;
   @include justifyContent();
+  
 }
+
+.to p.browse {
+  margin: 0;
+  padding: 0;
+}
+
+
 
 .top-items-two {
   width: 50%;

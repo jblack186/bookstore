@@ -3,6 +3,7 @@ import Pic from './img/Selection.png';
 import Carousel, {WithStyles} from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from 'axios'
+import './CardCarousel.scss'
 
 
 const CardCarousel = (props) => {
@@ -50,79 +51,76 @@ const responsive = {
 };
 
 return (
-  <div>
-    <h2>Recommended for You</h2>
+    <section className="home-product-carousel">
+      <h2>Recommended for You</h2>
 
-    <Carousel
-      additionalTransfrom={0}
-      arrows
-      autoPlay
-      autoPlaySpeed={3000}
-      centerMode
-      className=""
-      containerClass="container"
-      dotListClass=""
-      draggable
-      focusOnSelect={false}
-      infinite
-      itemClass=""
-      keyBoardControl
-      minimumTouchDrag={80}
-      renderButtonGroupOutside={false}
-      renderDotsOutside={false}
-        responsive={{
-          desktop: {
-            breakpoint: {
-              max: 3000,
-              min: 1024
+      <Carousel
+        additionalTransfrom={0}
+        arrows
+        autoPlay
+        autoPlaySpeed={3000}
+        centerMode
+        className=""
+        containerClass="container"
+        dotListClass=""
+        draggable
+        focusOnSelect={false}
+        infinite
+        itemClass=""
+        keyBoardControl
+        minimumTouchDrag={80}
+        renderButtonGroupOutside={false}
+        renderDotsOutside={false}
+          responsive={{
+            desktop: {
+              breakpoint: {
+                max: 3000,
+                min: 1024
+              },
+              items: 3,
+              partialVisibilityGutter: 40
             },
-            items: 3,
-            partialVisibilityGutter: 40
-          },
-          mobile: {
-            breakpoint: {
-              max: 464,
-              min: 0
+            mobile: {
+              breakpoint: {
+                max: 464,
+                min: 0
+              },
+              items: 1,
+              partialVisibilityGutter: 30
             },
-            items: 1,
-            partialVisibilityGutter: 30
-          },
-          tablet: {
-            breakpoint: {
-              max: 1024,
-              min: 464
-            },
-            items: 2,
-            partialVisibilityGutter: 30
-          }
-        }}
-        showDots={false}
-        sliderClass=""
-        slidesToSlide={2}
-        swipeable
-        transitionDuration={1000}
-      >
-      {books.map((item, index) => {
-            
-            return <li>
-                    
-                    <p>
-                            
-                    <a href={item.volumeInfo.infoLink}><a
-          description="React Carousel with Server Side Rendering Support – Part 2"
-          headline="w3js.com - web front-end studio"
-          image={item.volumeInfo.imageLinks.thumbnail}
-        /></a>
-                        <img  src={item.volumeInfo.imageLinks.thumbnail} />
-                        
-                        </p>
-                  </li >
-      
-            }) } 
+            tablet: {
+              breakpoint: {
+                max: 1024,
+                min: 464
+              },
+              items: 2,
+              partialVisibilityGutter: 30
+            }
+          }}
+          showDots={false}
+          sliderClass=""
+          slidesToSlide={2}
+          swipeable
+          transitionDuration={1000}
+        >
+        {books.map((item, index) => {
+              
+              return <li className='home-list-img'>
+                      
+                      <p>
+                              
+                      <a href={item.volumeInfo.infoLink}>
+             
+                          <img  src={item.volumeInfo.imageLinks.thumbnail} />
+                          </a>
+                          
+                          </p>
+                    </li >
+        
+              }) } 
 
-    </Carousel>
-
-  </div>
+      </Carousel>
+    </section>
 )
 
 }
