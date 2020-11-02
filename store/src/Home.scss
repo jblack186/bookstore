@@ -51,7 +51,8 @@ p {
 
 
   button {
-    background-color: orange;
+    font-family: Arial,sans-serif;
+    background-color: #FFA000;
     font-size: 1.2rem;
     width: 300px;
     height: 40px;
@@ -88,9 +89,9 @@ p {
 .recommendations {
   height: 45vh;
   width: 100vw;
-  background-color: black;
+  background-color:black;
   position: relative;
-  border-bottom: solid 1px hsla(0,0%,100%,.5); 
+  z-index: 99999;
 
 }
 

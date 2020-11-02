@@ -9,6 +9,8 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-around;
+          font-family: Arial,Helvetica,sans-serif;
+
 }
 
 .top-items-one {

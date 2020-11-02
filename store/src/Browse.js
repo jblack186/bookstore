@@ -13,9 +13,11 @@ const Browse = (props) => {
   const [politics, setPolitics] = useState([]);
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState("AIzaSyCnGiOUTd7RBgYr-c-_AzYRmg3fQjaVBO8");
-console.log(books)
+  const [home, setHome] = useState();
 
   useEffect(() => {
+    setHome(false)
+
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:history&${apiKey}&maxResults=10&orderBy=newest`)
       .then( res => {
         console.log(res.data.items)
@@ -75,7 +77,7 @@ console.log(books)
   return (
     <div className='browse-container'>
 
-      <TopBar />
+      <TopBar homepage={home} />
       <section className="browse-product-carousel">
       <h2 className='browse-set-tags'>History</h2>
 
