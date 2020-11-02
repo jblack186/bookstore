@@ -13,9 +13,11 @@ const Browse = (props) => {
   const [politics, setPolitics] = useState([]);
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState("AIzaSyCnGiOUTd7RBgYr-c-_AzYRmg3fQjaVBO8");
-console.log(books)
+  const [home, setHome] = useState();
 
   useEffect(() => {
+    setHome(false)
+
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:history&${apiKey}&maxResults=10&orderBy=newest`)
       .then( res => {
         console.log(res.data.items)
@@ -75,7 +77,7 @@ console.log(books)
   return (
     <div className='browse-container'>
 
-      <TopBar />
+      <TopBar homepage={home} />
       <section className="browse-product-carousel">
       <h2 className='browse-set-tags'>History</h2>
 
@@ -129,7 +131,7 @@ console.log(books)
         >
         {books.map((item, index) => {
               
-              return <li className='browse-list-img'>
+              return <div className='list-container'><li className='browse-list-img'>
                       
                       <p>
                               
@@ -139,8 +141,20 @@ console.log(books)
                           </a>
                           
                           </p>
-                    </li >
-        
+                          
+                    </li>
+                    <div className='card-desc'>
+                    <a className='title'>
+                      {item.volumeInfo.title.length < 10 ? item.volumeInfo.title : item.volumeInfo.title.slice(0,17)}...
+                    </a>
+                    <a className='author'>
+                      By: {item.volumeInfo.authors}
+                    </a>
+                    <a className='author'>
+                      {item.volumeInfo.categories}
+                    </a>
+                    </div>
+                    </div>
               }) } 
 
       </Carousel>
@@ -198,7 +212,7 @@ console.log(books)
         >
         {fiction.map((item, index) => {
               
-              return <li className='browse-list-img'>
+              return <div className='list-container'><li className='browse-list-img'>
                       
                       <p>
                               
@@ -209,7 +223,19 @@ console.log(books)
                           
                           </p>
                     </li >
-        
+                    <div className='card-desc'>
+                    <a className='title'>
+                      {item.volumeInfo.title.length < 10 ? item.volumeInfo.title : item.volumeInfo.title.slice(0,17)}...
+                    </a>
+                    <a className='author'>
+                      By: {item.volumeInfo.authors}
+                    </a>
+                    <a className='author'>
+                      {item.volumeInfo.categories}
+                    </a>
+                    </div>
+
+                    </div>
               }) } 
 
       </Carousel>
@@ -267,7 +293,7 @@ console.log(books)
         >
         {politics.map((item, index) => {
               
-              return <li className='browse-list-img'>
+              return <div className='list-container'><li className='browse-list-img'>
                       
                       <p>
                               
@@ -278,6 +304,18 @@ console.log(books)
                           
                           </p>
                     </li >
+                            <div className='card-desc'>
+                            <a className='title'>
+                              {item.volumeInfo.title.length < 10 ? item.volumeInfo.title : item.volumeInfo.title.slice(0,17)}...
+                            </a>
+                            <a className='author'>
+                              By: {item.volumeInfo.authors}
+                            </a>
+                            <a className='author'>
+                               {item.volumeInfo.categories}
+                            </a>
+                            </div>
+                            </div>
         
               }) } 
 

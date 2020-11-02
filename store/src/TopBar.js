@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TopBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faShoppingCart, faSearch, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import Selection from './img/Selection.png';
+import axios from 'axios';
+import {NavLink, useHistory} from 'react-router-dom';
 
 
-
-const TopBar = (props) => {
+const TopBar = (props) => { 
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [search, setSearch] = useState('');
+  const [apiKey, setApiKey] = useState("AIzaSyCnGiOUTd7RBgYr-c-_AzYRmg3fQjaVBO8");
+  const [books, setBooks] = useState([]);
+  const [home, setHome] = useState();
+  let history = useHistory();
+  useEffect(() => {
+    setHome(props.homepage)
+  }, [])
+
+  const send = (e) => {
+    history.push('/filter')
+  }
+
+
+  const changeHandler = (e) => {
+    setSearch(e.target.value)
+  }
+  
 
   const openSlideMenu = () => {
     setIsNavOpen(!isNavOpen);
@@ -16,9 +35,11 @@ const TopBar = (props) => {
   const closeSlideMenu = () => {
     setIsNavOpen(false);
   }
-  console.log(props)
+
+
   
   return (
+    <div>
     <div className='top-bar-container'>
       <div className="nav-blur-container">
       <div className="nav-blur-flex">
@@ -39,7 +60,7 @@ const TopBar = (props) => {
             <FontAwesomeIcon className="fa fa-bars" icon={faBars} />
         </a>
 
-        {props.homepage ? <img className='store-logo' src={Selection} alt='store-logo' /> : <p className='browse'>Browse</p>}
+        <NavLink to='/home'><img className='store-logo' src={Selection} alt='store-logo' /></NavLink>
         <div className='login'>
         <a href="#" onClick={openSlideMenu}>
             Login
@@ -51,9 +72,14 @@ const TopBar = (props) => {
       </div>
       <div className='top-items-two'>
         <div className='cart'>
-          <FontAwesomeIcon className='top-item' icon={faShoppingCart} />
+          <FontAwesomeIcon className='top-item cart' icon={faShoppingCart} />
         </div>
-        <FontAwesomeIcon className='top-item' icon={faSearch} />
+        <form onSubmit={send} className='form'>
+      <input onChange={changeHandler} className='input' />
+      <NavLink to='/filtered'><button type='submit' onClick={send}>GO</button></NavLink>
+      </form>
+      </div>
+
       </div>
 
 
