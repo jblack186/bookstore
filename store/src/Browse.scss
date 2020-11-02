@@ -1,0 +1,29 @@
+.browse-container {
+  height: 100%;
+  width: 100%;
+  background-color: #141414;
+}
+
+.browse-set-tags {
+  display: flex;
+  justify-content: flex-start;
+  margin-left:  15px;
+  color: white;
+  font-size: 1.3rem;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+
+.browse-list-img {
+  background-color: rgb(9, 8, 8);
+
+}
+
+.browse-list-img img {
+  box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  height: 170px;
+cursor: pointer;
+
+}
