@@ -17,8 +17,11 @@ const TopBar = (props) => {
     setIsNavOpen(false);
   }
   console.log(props)
+
+
   
   return (
+    <div>
     <div className='top-bar-container'>
       <div className="nav-blur-container">
       <div className="nav-blur-flex">
@@ -51,9 +54,14 @@ const TopBar = (props) => {
       </div>
       <div className='top-items-two'>
         <div className='cart'>
-          <FontAwesomeIcon className='top-item' icon={faShoppingCart} />
+          <FontAwesomeIcon className='top-item cart' icon={faShoppingCart} />
         </div>
-        <FontAwesomeIcon className='top-item' icon={faSearch} />
+        <form className='form'>
+      <input className='input' />
+      <button>GO</button>
+      </form>
+      </div>
+
       </div>
 
 
