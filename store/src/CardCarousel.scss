@@ -1,6 +1,6 @@
 .home-product-carousel {
   background: #243139;  
-  height: 80%;
+  height: 90%;
   width: 100vw;
   position: absolute;
   top: 50%;
@@ -51,9 +51,15 @@
 
 .home-list-img img {
   box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.1);
-  width: 70%;
+  width: 55%;
   height: 170px;
-cursor: pointer;
+  cursor: pointer;
+  filter: brightness(1.1);
+
+}
+
+.home-list-img img:hover {
+  filter: blur(1px);
 
 }
 
@@ -76,23 +82,4 @@ cursor: pointer;
   line-height: 1.5;
   margin: 0;
 }
-
-// .card.active {
-//   opacity: 1;
-//   transform: scale(1) translateX(0); 
-//   /* box-shadow: 0 30px 20px rgba(0, 0, 0, 0.2); */
-//   z-index: 1;
-// }
-
-/* .card.next {
-  opacity: 1;
-  z-index: 0;
-}
-
-.card.prev {
-  transform: scale(1.1) translateX(-50px);
-  z-index: 2;
-  opacity: 0;
-  visibility: hidden;
-} */
 

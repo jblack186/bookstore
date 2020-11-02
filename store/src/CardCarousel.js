@@ -4,6 +4,7 @@ import Carousel, {WithStyles} from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from 'axios'
 import './CardCarousel.scss'
+import Footer from './Footer';
 
 
 const CardCarousel = (props) => {
@@ -14,7 +15,7 @@ const CardCarousel = (props) => {
 
 
   useEffect(() => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=fiction&${apiKey}&maxResults=10`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=The+subject:fantasy&${apiKey}&maxResults=10&orderBy=newest`)
       .then( res => {
         console.log(res.data.items)
         setBooks(res.data.items)
@@ -61,7 +62,7 @@ return (
         autoPlaySpeed={3000}
         centerMode
         className=""
-        containerClass="container"
+        containerClass=""
         dotListClass=""
         draggable
         focusOnSelect={false}
@@ -74,7 +75,7 @@ return (
           responsive={{
             desktop: {
               breakpoint: {
-                max: 3000,
+                max: 5000,
                 min: 1024
               },
               items: 3,
