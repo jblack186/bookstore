@@ -15,15 +15,50 @@
 
 }
 
+.list-container {
+  background-color: rgba(9, 8, 2, 0.378);
+  
+}
+
 .browse-list-img {
-  background-color: rgb(9, 8, 8);
+  background-color: rgba(9, 8, 2, 0.378);
 
 }
 
 .browse-list-img img {
   box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.1);
-  width: 60%;
+  width: 180px;
   height: 170px;
 cursor: pointer;
+
+}
+
+.browse-list-img p {
+  margin: 0;
+}
+
+.card-desc {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: left;
+  background-color: #1f2b33;
+  width: 180px;
+  height: 120px;
+  margin-bottom: 15px;
+
+}
+
+.card-desc a.title {
+  padding-top: 10px;
+  padding-left: 5px;
+  color: white;
+}
+
+.card-desc a.author {
+  padding-left: 5px;
+  padding-top: 10px;
+  color: hsla(0,0%,100%,.5);
+  font-size: .8rem;
 
 }

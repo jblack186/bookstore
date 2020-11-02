@@ -129,7 +129,7 @@ console.log(books)
         >
         {books.map((item, index) => {
               
-              return <li className='browse-list-img'>
+              return <div className='list-container'><li className='browse-list-img'>
                       
                       <p>
                               
@@ -139,8 +139,20 @@ console.log(books)
                           </a>
                           
                           </p>
-                    </li >
-        
+                          
+                    </li>
+                    <div className='card-desc'>
+                    <a className='title'>
+                      {item.volumeInfo.title.length < 10 ? item.volumeInfo.title : item.volumeInfo.title.slice(0,17)}...
+                    </a>
+                    <a className='author'>
+                      By: {item.volumeInfo.authors}
+                    </a>
+                    <a className='author'>
+                      {item.volumeInfo.categories}
+                    </a>
+                    </div>
+                    </div>
               }) } 
 
       </Carousel>
@@ -198,7 +210,7 @@ console.log(books)
         >
         {fiction.map((item, index) => {
               
-              return <li className='browse-list-img'>
+              return <div className='list-container'><li className='browse-list-img'>
                       
                       <p>
                               
@@ -209,7 +221,19 @@ console.log(books)
                           
                           </p>
                     </li >
-        
+                    <div className='card-desc'>
+                    <a className='title'>
+                      {item.volumeInfo.title.length < 10 ? item.volumeInfo.title : item.volumeInfo.title.slice(0,17)}...
+                    </a>
+                    <a className='author'>
+                      By: {item.volumeInfo.authors}
+                    </a>
+                    <a className='author'>
+                      {item.volumeInfo.categories}
+                    </a>
+                    </div>
+
+                    </div>
               }) } 
 
       </Carousel>
@@ -267,7 +291,7 @@ console.log(books)
         >
         {politics.map((item, index) => {
               
-              return <li className='browse-list-img'>
+              return <div className='list-container'><li className='browse-list-img'>
                       
                       <p>
                               
@@ -278,6 +302,18 @@ console.log(books)
                           
                           </p>
                     </li >
+                            <div className='card-desc'>
+                            <a className='title'>
+                              {item.volumeInfo.title.length < 10 ? item.volumeInfo.title : item.volumeInfo.title.slice(0,17)}...
+                            </a>
+                            <a className='author'>
+                              By: {item.volumeInfo.authors}
+                            </a>
+                            <a className='author'>
+                               {item.volumeInfo.categories}
+                            </a>
+                            </div>
+                            </div>
         
               }) } 
 
