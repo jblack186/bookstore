@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './Homes.scss';
+import './Homes.css';
 import TopBar from './TopBar';
 import Hero from './img/jeremy-bishop-G9i_plbfDgk-unsplash.jpg';
 import Card from './CardCarousel';

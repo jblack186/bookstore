@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Filtered.scss';
+import './Filtered.css';
 import axios from 'axios';
 import TopBar from './TopBar';
 import Footer from './Footer';

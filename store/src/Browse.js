@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './Browse.scss';
+import './Browse.css';
 import TopBar from './TopBar';
 import axios from 'axios';
 import Carousel, {WithStyles} from "react-multi-carousel";
