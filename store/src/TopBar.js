@@ -46,7 +46,7 @@ const TopBar = (props) => {
       <ul className={isNavOpen === true ? "slide-nav" : "close-nav"}>
         <div className='nav-list'>
           <a href="#">Log In</a>
-          <a href="#">Sign Up</a>
+          <a href="/signIn">Sign Up</a>
           <a href="#">Sign Out</a>
         </div>
       </ul>
@@ -62,12 +62,12 @@ const TopBar = (props) => {
 
         <NavLink to='/home'><img className='store-logo' src={Selection} alt='store-logo' /></NavLink>
         <div className='login'>
-        <a href="#" onClick={openSlideMenu}>
+        <a href="#">
             Login
         </a>
-        <a href="#" onClick={openSlideMenu}>
+        <NavLink to='/signin'><a href="#">
             Signup
-        </a>
+        </a></NavLink>
         </div>
       </div>
       <div className='top-items-two'>
