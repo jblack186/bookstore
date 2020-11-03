@@ -17,7 +17,7 @@ const SignIn = () => {
         <div className='sign-img-contain'>
           <img className='book-logo-sign' src={Books} alt='book-logo' /> 
           <h1>The Online Library</h1>
-          <p>The bookstore app you've been waiting for. Get lost in a book.</p>
+          <p>Reading can give you superpowers. Learn, imagine, and escape with us. We can't wait for you to visit our library.</p>
         </div>
         <h3>We'd love to have you. Take some time out to register.</h3>
         <form>
