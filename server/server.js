@@ -1,8 +1,18 @@
-const express = require('express');
-const server = express();
-var cors = require('cors');
+const express = require("express");
+const app = express();
+const cors = require("cors");
 
-server.use(express.json()); //allows access to req.body
-server.use(cors);
+//middleware
 
-module.exports = server;
+app.use(cors());
+app.use(express.json());
+
+//routes
+
+app.use("/authentication", require("./routes/storeAuth"));
+
+app.use("/dashboard", require("./routes/dashboard"));
+
+app.listen(5000, () => {
+  console.log(`Server is starting on port 5000`);
+});
