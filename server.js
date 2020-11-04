@@ -18,7 +18,7 @@ if(process.env.NODE_ENV === "production") {
 
 //routes
 
-app.use("/authentication", require("./routes/storeAuth"));
+app.use("/authentication", require("./routes/jwtAuth"));
 app.use("/dashboard", require("./routes/dashboard"));
 
 
