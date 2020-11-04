@@ -27,7 +27,7 @@ const SignIn = () => {
       try {
         const body = { email, password, name };
         const response = await fetch(
-          "http://localhost:5000/authentication/register",
+          "https://bookstore12.herokuapp.com/authentication/register",
           {
             method: "POST",
             headers: {

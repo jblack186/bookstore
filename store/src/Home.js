@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Homes.css';
 import TopBar from './TopBar';
 import Hero from './img/jeremy-bishop-G9i_plbfDgk-unsplash.jpg';
@@ -11,9 +11,33 @@ const Home = (props) => {
   const [isNavOpenClosed, setIsNavOpenClosed] = useState(false)
   const [homepage, setHomePage] = useState(true);
 
+  const [name, setName] = useState("");
+
+  const getProfile = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/dashboard/", {
+        method: "POST",
+        headers: { jwt_token: localStorage.token }
+      });
+
+      const parseData = await res.json();
+      setName(parseData.user_name);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getProfile()
+  }, [])
+
   const closeNav = () => {
     setIsNavOpenClosed(true);
   }
+
+  console.log(name)
+  console.log('name')
+
 
   return (
     <>
