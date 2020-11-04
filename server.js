@@ -31,7 +31,7 @@ app.get("/", async (req, res) => {
     console.error(err.message);
   }
 });
-if user goes somewhere other than a predefined route then this will take them back to the homepage
+// if user goes somewhere other than a predefined route then this will take them back to the homepage
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "store/build/index.html")); 
 })
