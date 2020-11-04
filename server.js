@@ -18,7 +18,8 @@ if(process.env.NODE_ENV === "production") {
 //routes
 
 app.use("/dashboard", require("./routes/dashboard"));
-// app.use("/auth", require("./routes/jwtAuth"));
+
+app.use("/auth", require("./routes/jwtAuth"));
 
 
 // app.get("/", async (req, res) => {
