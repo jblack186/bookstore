@@ -32,9 +32,9 @@ app.use("/auth", require("./routes/jwtAuth"));
 //   }
 // });
 //if user goes somewhere other than a predefined route then this will take them back to the homepage
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "store/build/index.html")); 
-})
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "store/build/index.html")); 
+// })
 
 app.listen(PORT, () => {
   console.log(`Server is starting on port ${PORT}`);
