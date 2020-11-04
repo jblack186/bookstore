@@ -1,10 +1,14 @@
-const router = require("express").Router();
-const bcrypt = require("bcryptjs");
-const jwtGenerator = require("../utils/jwtGenerator");
+const express = require("express");
+const router = express.Router();
+const bcrypt = require("bcrypt");
 const pool = require("../db");
+const validInfo = require("../middleware/validInfo");
+const jwtGenerator = require("../utils/jwtGenerator");
+const authorize = require("../middleware/authorize");
 
+//authorizeentication
 
-router.post("/register", async (req, res) => {
+router.post("/register", validInfo, async (req, res) => {
   const { email, name, password } = req.body;
 
   try {
@@ -33,7 +37,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", validInfo, async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -61,7 +65,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/verify", (req, res) => {
+router.post("/verify", authorize, (req, res) => {
   try {
     res.json(true);
   } catch (err) {
