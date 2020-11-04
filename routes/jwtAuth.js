@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
-// const jwtGenerator = require("../utils/jwtGenerator");
+const jwtGenerator = require("../utils/jwtGenerator");
 const pool = require("../db");
 
 
@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
       [name, email, bcryptPassword]
     );
 
-    const jwtToken = 1;
+    const jwtToken = jwtGenerator(newUser.rows[0].user_id);
 
     return res.json({ jwtToken });
   } catch (err) {
