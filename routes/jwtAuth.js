@@ -1,4 +1,4 @@
-const routers = require("express").Router();
+const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwtGenerator = require("../utils/jwtGenerator");
 const pool = require("../db");
@@ -70,4 +70,4 @@ router.post("/verify", (req, res) => {
   }
 });
 
-module.exports = routers;
+module.exports = router;
