@@ -1,6 +1,6 @@
 const routers = require("express").Router();
 const bcrypt = require("bcrypt");
-const jwtGenerator = require("../utils/jwtGenerator");
+// const jwtGenerator = require("../utils/jwtGenerator");
 // const pool = require("../db");
 
 
