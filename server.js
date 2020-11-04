@@ -18,9 +18,9 @@ if(process.env.NODE_ENV === "production") {
 
 //routes
 
-// app.use("/authentication", require("./routes/storeAuth"));
+app.use("/authentication", require("./routes/storeAuth"));
 
-// app.use("/dashboard", require("./routes/dashboard"));
+app.use("/dashboard", require("./routes/dashboard"));
 
 
 app.get("/", async (req, res) => {

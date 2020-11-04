@@ -5,6 +5,7 @@ import Books from './img/bookonshelf .png';
 import TopBar from './TopBar';
 import Footer from './Footer';
 import { toast } from "react-toastify";
+import {useHistory} from 'react-router-dom';
 
 const SignIn = () => {
     const [inputs, setInputs] = useState({
@@ -12,7 +13,8 @@ const SignIn = () => {
       password: "",
       name: ""
     });
-  
+    let history = useHistory();
+
   const { email, password, name } = inputs;
 
   console.log(email, name)
@@ -39,6 +41,9 @@ const SignIn = () => {
         if (parseRes.jwtToken) {
           localStorage.setItem("token", parseRes.jwtToken);
           toast.success("Register Successfully");
+          history.push('/home')
+
+          
         } else {
           toast.error(parseRes);
         }
