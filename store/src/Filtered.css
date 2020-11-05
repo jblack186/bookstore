@@ -1,0 +1,28 @@
+.filter-container {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  background-color: #141414;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.filter-container p {
+  margin: 0;
+}
+
+
+.filtered-list-img {
+  width: 300px;
+  height: 350px;
+}
+
+.filt-card-desc {
+  padding-top: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
