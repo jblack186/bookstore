@@ -27,7 +27,7 @@ const SignIn = () => {
       try {
         const body = { email, password, name };
         const response = await fetch(
-          "https://bookstore12.herokuapp.com/auth/register",
+          "auth/register",
           {
             method: "POST",
             headers: {
