@@ -25,12 +25,12 @@ router.post("/", authorize, async (req, res) => {
   try {
     console.log(req.body);
     const { choice } = req.body;
-    const newTodo = await pool.query(
+    const newChoice = await pool.query(
       "INSERT INTO choices (user_id, choice) VALUES ($1, $2) RETURNING *",
       [req.user.id, choice]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(newChoice.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
