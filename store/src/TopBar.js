@@ -18,7 +18,7 @@ const TopBar = (props) => {
 
   const getUser = async () => {
     try {
-      const res = await fetch("http://localhost:5000/choices", {
+      const res = await fetch("/choices", {
         method: "GET",
         headers: { jwt_token: localStorage.token }
       });
