@@ -15,8 +15,8 @@ const Home = (props) => {
 
   const getProfile = async () => {
     try {
-      const res = await fetch("http://localhost:5000/dashboard/", {
-        method: "POST",
+      const res = await fetch("http://localhost:5000/choices", {
+        method: "GET",
         headers: { jwt_token: localStorage.token }
       });
 
