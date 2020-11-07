@@ -14,7 +14,7 @@
 }
 
 .top-items-one {
-  width: 50%;
+  width: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -64,7 +64,7 @@
 
 
 .top-items-two {
-  width: 30%;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

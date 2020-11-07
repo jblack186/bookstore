@@ -5,7 +5,7 @@ import { faBars, faShoppingCart, faSearch, faWindowClose } from '@fortawesome/fr
 import Selection from './img/Selection.png';
 import axios from 'axios';
 import {NavLink, useHistory} from 'react-router-dom';
-
+import {DropdownButton, SplitButton, Dropdown, ButtonGroup} from 'react-bootstrap';
 
 const TopBar = (props) => { 
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -14,6 +14,10 @@ const TopBar = (props) => {
   const [books, setBooks] = useState([]);
   const [home, setHome] = useState();
   const [name, setName] = useState('');
+  const [preferOne, setPreferOne] = useState('History');
+  const [preferTwo, setPreferTwo] = useState('Fantasy');
+  const [preferThree, setPreferThree] = useState('Politics');
+
   let history = useHistory();
 
   const getUser = async () => {
@@ -24,7 +28,7 @@ const TopBar = (props) => {
       });
 
       const parseRes = await res.json();
-      console.log(parseRes[0].user_name)
+      console.log(parseRes[0])
       let userName = parseRes[0].user_name;
       let num = userName.indexOf(" ");
       if (num < 0) {
@@ -72,6 +76,28 @@ const TopBar = (props) => {
     window.location.reload();
   }
 
+  const prefOne = e => {
+    console.log(e.target.id)
+    setPreferOne(e.target.id)
+    localStorage.setItem('prefOne', e.target.id)
+    
+  }
+
+
+  const prefTwo = e => {
+    console.log(e.target.id)
+    setPreferTwo(e.target.id)
+    localStorage.setItem('prefTwo', e.target.id)
+
+  }
+
+  const prefThree = e => {
+    console.log(e.target.id)
+    setPreferThree(e.target.id)
+    localStorage.setItem('prefThree', e.target.id)
+
+  }
+
   
   return (
     <div>
@@ -82,7 +108,7 @@ const TopBar = (props) => {
         <div className='nav-list'>
           <a href="/login">Log In</a>
           <a href="/signIn">Sign Up</a>
-          <a href="#">Sign Out</a>
+          <a onClick={logout} href="#">Sign Out</a>
         </div>
       </ul>
       <div onClick={closeSlideMenu} className="blur">
@@ -114,10 +140,114 @@ const TopBar = (props) => {
       </div>
         
       <div className='top-items-two'>
-        <div className='cart'>
-          <FontAwesomeIcon className='top-item cart' icon={faShoppingCart} />
-        </div>
-        <form onSubmit={send} className='form'>
+      <div>
+          {['Secondary'].map(
+        (variant) => (
+          <SplitButton
+            key={variant}
+            id={`dropdown-split-variants-${variant}`}
+            variant={variant.toLowerCase()}
+            title='Preference 1'
+            size='sm'
+           
+          >
+            <Dropdown.Item eventKey="3" onClick={prefOne}  id='Fiction' >
+              Fiction
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefOne}  id='History'  >
+              History
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefOne}  id='Science'  >
+              Science
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefOne}  id='Fantasy'  >
+              Fantasy
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefOne}  id='Romance'  >
+              Romance
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefOne}  id='Politics'  >
+              Politics
+            </Dropdown.Item>
+
+            <Dropdown.Divider />
+            <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+          </SplitButton>
+        ),
+      )}
+      </div>   
+      <div>
+          {['Secondary'].map(
+        (variant) => (
+          <SplitButton
+            key={variant}
+            id={`dropdown-split-variants-${variant}`}
+            variant={variant.toLowerCase()}
+            title='Preference 2'
+            size='sm'
+
+          >
+            <Dropdown.Item eventKey="3" onClick={prefTwo}  id='Fiction' >
+              Fiction
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefTwo}  id='History'  >
+              History
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefTwo}  id='Science'  >
+              Science
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefTwo}  id='Fantasy'  >
+              Fantasy
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefTwo}  id='Romance'  >
+              Romance
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefTwo}  id='Politics'  >
+              Politics
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+          </SplitButton>
+        ),
+      )}
+      </div>        
+      <div>
+          {['Secondary'].map(
+        (variant) => (
+          <SplitButton
+            key={variant}
+            id={`dropdown-split-variants-${variant}`}
+            variant={variant.toLowerCase()}
+            title='Preference 3'
+            size='sm'
+
+          >
+            <Dropdown.Item eventKey="3" onClick={prefThree}  id='Fiction' >
+              Fiction
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefThree}  id='History'  >
+              History
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefThree}  id='Science'  >
+              Science
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefThree}  id='Fantasy'  >
+              Fantasy
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefThree}  id='Romance'  >
+              Romance
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3" onClick={prefThree}  id='Politics'  >
+              Politics
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+          </SplitButton>
+        ),
+      )}
+      </div>        
+     
+  <form onSubmit={send} className='form'>
       <input onChange={changeHandler} className='input' />
       <NavLink to='/filtered'><button type='submit' onClick={send}>GO</button></NavLink>
       </form>

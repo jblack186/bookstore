@@ -20,7 +20,7 @@ PRIMARY KEY (choices_id),
 FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-insert into users (user_name, user_email, user_password) values ('KJacob', 'kjacob@gmail.com', 'kthl8822');
+insert into users (user_name, user_email, user_password) values ('KJacob', 'kjacofeefb@gmail.com', 'kthl8822');
 
 
-insert into choices (user_id, choice) values ('ad17d63b-edbb-4c3d-8e6c-67b06b44fbb5', 'science, education, astronomy');
+insert into choices (user_id, choice) values ('0cbc3f0e-c6a1-496d-9acd-bf13d970d690', 'science, education, astronomy');
