@@ -13,7 +13,38 @@ const TopBar = (props) => {
   const [apiKey, setApiKey] = useState("AIzaSyCnGiOUTd7RBgYr-c-_AzYRmg3fQjaVBO8");
   const [books, setBooks] = useState([]);
   const [home, setHome] = useState();
+  const [name, setName] = useState('');
   let history = useHistory();
+
+  const getUser = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/choices", {
+        method: "GET",
+        headers: { jwt_token: localStorage.token }
+      });
+
+      const parseRes = await res.json();
+      console.log(parseRes[0].user_name)
+      let userName = parseRes[0].user_name;
+      let num = userName.indexOf(" ");
+      if (num < 0) {
+        setName(parseRes[0].user_name)
+      } else {
+      var firstName = userName.slice(0, num);
+
+      setName(firstName)
+}
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+
+
   useEffect(() => {
     setHome(props.homepage)
   }, [])
@@ -36,6 +67,10 @@ const TopBar = (props) => {
     setIsNavOpen(false);
   }
 
+  const logout = () => {
+    localStorage.removeItem("token")
+    window.location.reload();
+  }
 
   
   return (
@@ -45,7 +80,7 @@ const TopBar = (props) => {
       <div className="nav-blur-flex">
       <ul className={isNavOpen === true ? "slide-nav" : "close-nav"}>
         <div className='nav-list'>
-          <a href="#">Log In</a>
+          <a href="/login">Log In</a>
           <a href="/signIn">Sign Up</a>
           <a href="#">Sign Out</a>
         </div>
@@ -61,15 +96,23 @@ const TopBar = (props) => {
         </a>
 
         <NavLink to='/home'><img className='store-logo' src={Selection} alt='store-logo' /></NavLink>
+        { name.length === 0 ?
         <div className='login'>
-        <a href="#">
+        <NavLink to='/login'><a href="#m">
             Login
-        </a>
+        </a></NavLink>
         <NavLink to='/signin'><a href="#">
             Signup
         </a></NavLink>
         </div>
+         : <div className='login'>
+           <p>Hey there  { name}!</p>
+         <a onClick={logout} href="#m">
+            Logout
+        </a>
+        </div> }
       </div>
+        
       <div className='top-items-two'>
         <div className='cart'>
           <FontAwesomeIcon className='top-item cart' icon={faShoppingCart} />
