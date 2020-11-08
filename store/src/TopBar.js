@@ -66,9 +66,10 @@ const TopBar = (props) => {
     }
     if (!localStorage.prefThree) {
       setPreferThree('Politics')
+      localStorage.setItem('prefThree', 'Politics');
+
     } else {
         setPreferThree(localStorage.prefThree)
-        localStorage.setItem('prefThree', 'Politics');
 
     }
 
