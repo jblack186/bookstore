@@ -18,6 +18,10 @@ const Browse = (props) => {
   const [preferTwo, setPreferTwo] = useState(localStorage.getItem('prefTwo'));
   const [preferThree, setPreferThree] = useState(localStorage.getItem('prefThree'));
 
+  const reload = () => {
+    window.location.reload();
+  }
+
   useEffect(() => {
 
 
@@ -83,6 +87,7 @@ const Browse = (props) => {
     <div className='browse-container'>
 
       <TopBar homepage={home} />
+      <button className="reload" onClick={reload}>Reset to preferences</button>
       <section className="browse-product-carousel">
   <h2 className='browse-set-tags'>{preferOne}</h2>
 
