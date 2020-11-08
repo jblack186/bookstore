@@ -189,10 +189,6 @@
 }
 
 
-.form {
-  /* display: flex; */
-  
-}
 
 .form input {
   height: 2rem;
@@ -217,7 +213,7 @@
   transition-duration: .5s;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1017px) {
   .form button {
     width: 2.5rem;
   }
@@ -228,4 +224,24 @@
   background-color: #1f2b33;
   color: #141414;
 
+}
+
+.choices {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1017px) {
+  .choices {
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    right: 50%;
+    margin-right: -50%;
+    
+  }
+}
+
+.choice-button {
+  padding-right: 5px;
 }

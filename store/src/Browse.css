@@ -12,6 +12,14 @@
   color: white;
 }
 
+@media screen and (max-width: 1017px) {
+  .reload {
+    margin-top: 50px;
+    
+  }
+}
+
+
 .browse-set-tags {
   display: flex;
   justify-content: flex-start;

@@ -200,7 +200,8 @@ const TopBar = (props) => {
       </div>
         
       <div className='top-items-two'>
-      <div>
+        <div  className='choices'>
+        <div className='choice-button'>
           {['Secondary'].map(
         (variant) => (
           <SplitButton
@@ -236,7 +237,7 @@ const TopBar = (props) => {
         ),
       )}
       </div>   
-      <div>
+      <div className='choice-button'>
           {['Secondary'].map(
         (variant) => (
           <SplitButton
@@ -307,6 +308,7 @@ const TopBar = (props) => {
           </SplitButton>
         ),
       )}
+      </div>
       </div>        
      
   <form onSubmit={send} className='form'>
