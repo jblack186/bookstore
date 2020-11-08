@@ -4,6 +4,22 @@
   background-color: #141414;
 }
 
+.reload {
+  border: none;
+  border-radius: 3px;
+  margin-top: 10px;
+  background-color: hsla(0,0%,100%,.5);
+  color: white;
+}
+
+@media screen and (max-width: 1017px) {
+  .reload {
+    margin-top: 50px;
+    
+  }
+}
+
+
 .browse-set-tags {
   display: flex;
   justify-content: flex-start;

@@ -20,6 +20,12 @@ const TopBar = (props) => {
 
   let history = useHistory();
 
+  const go = () => {
+    history.push('/browse');
+    window.location.reload();
+  }
+  
+
   const getUser = async () => {
     try {
       const res = await fetch("/choices", {
@@ -60,9 +66,10 @@ const TopBar = (props) => {
     }
     if (!localStorage.prefThree) {
       setPreferThree('Politics')
+      localStorage.setItem('prefThree', 'Politics');
+
     } else {
         setPreferThree(localStorage.prefThree)
-        localStorage.setItem('prefThree', 'Politics');
 
     }
 
@@ -194,7 +201,8 @@ const TopBar = (props) => {
       </div>
         
       <div className='top-items-two'>
-      <div>
+        <div  className='choices'>
+        <div className='choice-button'>
           {['Secondary'].map(
         (variant) => (
           <SplitButton
@@ -203,7 +211,7 @@ const TopBar = (props) => {
             variant={variant.toLowerCase()}
             title={preferOne.length === 0 ? '1st Preference' : preferOne}
             size='sm'
-           
+            onClick={go}
           >
             <Dropdown.Item eventKey="3" onClick={prefOne}  id='Fiction' >
               Fiction
@@ -230,7 +238,7 @@ const TopBar = (props) => {
         ),
       )}
       </div>   
-      <div>
+      <div className='choice-button'>
           {['Secondary'].map(
         (variant) => (
           <SplitButton
@@ -239,6 +247,7 @@ const TopBar = (props) => {
             variant={variant.toLowerCase()}
             title={preferTwo.length === 0 ? '2nd Preference' : preferTwo}
             size='sm'
+            onClick={go}
 
           >
             <Dropdown.Item eventKey="3" onClick={prefTwo}  id='Fiction' >
@@ -274,6 +283,7 @@ const TopBar = (props) => {
             variant={variant.toLowerCase()}
             title={preferThree.length === 0 ? '3rd Preference' : preferThree}
             size='sm'
+            onClick={go}
 
           >
             <Dropdown.Item eventKey="3" onClick={prefThree}  id='Fiction' >
@@ -299,6 +309,7 @@ const TopBar = (props) => {
           </SplitButton>
         ),
       )}
+      </div>
       </div>        
      
   <form onSubmit={send} className='form'>

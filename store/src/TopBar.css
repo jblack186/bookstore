@@ -76,14 +76,30 @@
 
 @media screen and (max-width: 700px) {
   .top-items-two {
-    width: 50%;
+    width: 50vw;
+    justify-content: space-evenly;
   }
 }
+
+@media screen and (max-width: 700px) {
+  .top-items-one {
+    width: 50vw;
+    justify-content: space-evenly;
+  }
+}
+
 
 
 .store-logo {
   height: 35px;
 }
+
+@media screen and (max-width: 700px) {
+  .store-logo {
+    margin-left: 15px;
+  }
+}
+
 
 .top-item {
   height: 50px;
@@ -121,6 +137,8 @@
   align-items: center;
   animation-name: slideOut;
   animation-duration: .3s;
+  z-index: 99999999;
+
 }
 
 @keyframes slideOut {
@@ -174,6 +192,7 @@
 
 .fa.fa-bars {
   color: white;
+
 }
 
 @media screen and (min-width: 700px) {
@@ -189,10 +208,6 @@
 }
 
 
-.form {
-  /* display: flex; */
-  
-}
 
 .form input {
   height: 2rem;
@@ -217,7 +232,7 @@
   transition-duration: .5s;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1017px) {
   .form button {
     width: 2.5rem;
   }
@@ -227,5 +242,28 @@
 .form button:hover {
   background-color: #1f2b33;
   color: #141414;
+
+}
+
+.choices {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+@media screen and (max-width: 1017px) {
+  .choices {
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    right: 50%;
+    margin-right: -50%;
+    
+  }
+}
+
+.choice-button {
+  padding-right: 5px;
+  z-index: 1;
 
 }
