@@ -14,9 +14,9 @@ const TopBar = (props) => {
   const [books, setBooks] = useState([]);
   const [home, setHome] = useState();
   const [name, setName] = useState('');
-  const [preferOne, setPreferOne] = useState('History');
-  const [preferTwo, setPreferTwo] = useState('Fantasy');
-  const [preferThree, setPreferThree] = useState('Politics');
+  const [preferOne, setPreferOne] = useState('');
+  const [preferTwo, setPreferTwo] = useState('');
+  const [preferThree, setPreferThree] = useState('');
 
   let history = useHistory();
 
@@ -45,6 +45,27 @@ const TopBar = (props) => {
 
   useEffect(() => {
     getUser();
+    if (!localStorage.prefOne) {
+      setPreferOne('History')
+      localStorage.setItem('prefOne', 'History');
+    } else {
+      setPreferOne(localStorage.prefOne)
+    }
+    if (!localStorage.prefTwo) {
+      setPreferTwo('Fiction')
+      localStorage.setItem('prefTwo', 'Fiction');
+
+    } else {
+        setPreferTwo(localStorage.prefTwo)
+    }
+    if (!localStorage.prefThree) {
+      setPreferThree('Politics')
+    } else {
+        setPreferThree(localStorage.prefThree)
+        localStorage.setItem('prefThree', 'Politics');
+
+    }
+
   }, []);
 
 
@@ -76,18 +97,41 @@ const TopBar = (props) => {
     window.location.reload();
   }
 
-  const prefOne = e => {
+  const prefOne = async e => {
+    e.preventDefault();
     console.log(e.target.id)
     setPreferOne(e.target.id)
     localStorage.setItem('prefOne', e.target.id)
-    
-  }
+    const myHeaders = new Headers();
+    myHeaders.append("jwt_token", localStorage.token);
+        axios.post('/choices', {choice: e.target.id}, {headers: {jwt_token: localStorage.token}
+      })
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+  };
+
+  
 
 
   const prefTwo = e => {
     console.log(e.target.id)
     setPreferTwo(e.target.id)
     localStorage.setItem('prefTwo', e.target.id)
+    const myHeaders = new Headers();
+    myHeaders.append("jwt_token", localStorage.token);
+        axios.post('/choices', {choice: e.target.id}, {headers: {jwt_token: localStorage.token}
+      })
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 
   }
 
@@ -95,6 +139,16 @@ const TopBar = (props) => {
     console.log(e.target.id)
     setPreferThree(e.target.id)
     localStorage.setItem('prefThree', e.target.id)
+    const myHeaders = new Headers();
+    myHeaders.append("jwt_token", localStorage.token);
+        axios.post('/choices', {choice: e.target.id}, {headers: {jwt_token: localStorage.token}
+      })
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 
   }
 
@@ -147,7 +201,7 @@ const TopBar = (props) => {
             key={variant}
             id={`dropdown-split-variants-${variant}`}
             variant={variant.toLowerCase()}
-            title='Preference 1'
+            title={preferOne.length === 0 ? '1st Preference' : preferOne}
             size='sm'
            
           >
@@ -183,7 +237,7 @@ const TopBar = (props) => {
             key={variant}
             id={`dropdown-split-variants-${variant}`}
             variant={variant.toLowerCase()}
-            title='Preference 2'
+            title={preferTwo.length === 0 ? '2nd Preference' : preferTwo}
             size='sm'
 
           >
@@ -218,7 +272,7 @@ const TopBar = (props) => {
             key={variant}
             id={`dropdown-split-variants-${variant}`}
             variant={variant.toLowerCase()}
-            title='Preference 3'
+            title={preferThree.length === 0 ? '3rd Preference' : preferThree}
             size='sm'
 
           >

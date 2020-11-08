@@ -14,13 +14,16 @@ const Browse = (props) => {
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState("AIzaSyCnGiOUTd7RBgYr-c-_AzYRmg3fQjaVBO8");
   const [home, setHome] = useState();
+  const [preferOne, setPreferOne] = useState(localStorage.getItem('prefOne'));
+  const [preferTwo, setPreferTwo] = useState(localStorage.getItem('prefTwo'));
+  const [preferThree, setPreferThree] = useState(localStorage.getItem('prefThree'));
 
   useEffect(() => {
 
-    
+
     setHome(false)
 
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:history&${apiKey}&maxResults=10&orderBy=newest`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${preferOne}&${apiKey}&maxResults=10&orderBy=newest`)
       .then( res => {
         console.log(res.data.items)
         setBooks(res.data.items)
@@ -29,7 +32,7 @@ const Browse = (props) => {
       .catch(err => {
         console.log(err)
       })
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:fiction&${apiKey}&maxResults=10&orderBy=newest`)
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${preferTwo}&${apiKey}&maxResults=10&orderBy=newest`)
       .then( res => {
         console.log(res.data.items)
         setFiction(res.data.items)
@@ -39,7 +42,7 @@ const Browse = (props) => {
         console.log(err)
       })
 
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:politics&${apiKey}&maxResults=10&orderBy=newest`)
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${preferThree}&${apiKey}&maxResults=10&orderBy=newest`)
       .then( res => {
         console.log(res.data.items)
         setPolitics(res.data.items)
@@ -81,7 +84,7 @@ const Browse = (props) => {
 
       <TopBar homepage={home} />
       <section className="browse-product-carousel">
-      <h2 className='browse-set-tags'>History</h2>
+  <h2 className='browse-set-tags'>{preferOne}</h2>
 
       <Carousel
         additionalTransfrom={0}
@@ -162,7 +165,7 @@ const Browse = (props) => {
       </Carousel>
     </section>
     <section className="browse-product-carousel">
-      <h2 className='browse-set-tags'>Fiction</h2>
+            <h2 className='browse-set-tags'>{preferTwo}</h2>
 
       <Carousel
         additionalTransfrom={0}
@@ -243,7 +246,7 @@ const Browse = (props) => {
       </Carousel>
     </section>
     <section className="browse-product-carousel">
-      <h2 className='browse-set-tags'>Politics</h2>
+            <h2 className='browse-set-tags'>{preferThree}</h2>
 
       <Carousel
         additionalTransfrom={0}

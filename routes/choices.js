@@ -36,4 +36,62 @@ router.post("/", authorize, async (req, res) => {
   }
 });
 
+router.put("/prefOne/:id", authorize, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { pref } = req.body;
+    const updatePrefOne = await pool.query(
+      "UPDATE prefOne SET pref = $1 WHERE pref_id = $2 AND user_id = $3 RETURNING *",
+      [pref, id, req.user.id]
+    );
+
+    if (updatePrefOne.rows.length === 0) {
+      return res.json("This todo is not yours");
+    }
+
+    res.json("Preference was updated");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+router.put("/prefTwo/:id", authorize, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { pref } = req.body;
+    const updatePrefTwo = await pool.query(
+      "UPDATE prefTwo SET pref = $1 WHERE pref_id = $2 AND user_id = $3 RETURNING *",
+      [pref, id, req.user.id]
+    );
+
+    if (updatePrefTwo.rows.length === 0) {
+      return res.json("This todo is not yours");
+    }
+
+    res.json("Preference was updated");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+router.put("/prefThree/:id", authorize, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { pref } = req.body;
+    const updatePrefThree = await pool.query(
+      "UPDATE prefThree SET pref = $1 WHERE pref_id = $2 AND user_id = $3 RETURNING *",
+      [pref, id, req.user.id]
+    );
+
+    if (updatePrefThree.rows.length === 0) {
+      return res.json("This todo is not yours");
+    }
+
+    res.json("Preference was updated");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
 module.exports = router;
