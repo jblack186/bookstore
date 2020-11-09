@@ -3,7 +3,7 @@ import './Filtered.css';
 import axios from 'axios';
 import TopBar from './TopBar';
 import Footer from './Footer';
-
+import Blank from './img/blankCover.jpg';
 
 const Filtered = (props) => {
   const [library, setLibrary] = useState([]);
@@ -11,26 +11,35 @@ const Filtered = (props) => {
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState("AIzaSyCnGiOUTd7RBgYr-c-_AzYRmg3fQjaVBO8");
   const [home, setHome] = useState();
+  const [error, setError] = useState(false);
+  const [onFilter, setOnFilter] = useState(false);
 
-
-  useEffect(() => {
-    setHome(false)
-
-    let search = localStorage.getItem('search')
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&${apiKey}&maxResults=20&orderBy=newest`)
-      .then( res => {
-        console.log(res.data.items)
-        setBooks(res.data.items)
-
+  async function searching() {
+    let search = await localStorage.getItem('search')
+   await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&${apiKey}&maxResults=20&orderBy=newest`)
+      .then(res => {
+        console.log('response',res.status)
+         setBooks(res.data.items)
+        
       })
       .catch(err => {
         console.log(err)
       })
+
+  }
+
+  useEffect(() => {
+    setOnFilter(true);
+    setHome(false)
+    searching();
   }, [])
+
+  console.log('books', books)
+
 
   return (
     <>
-    <TopBar homepage={home} />
+    <TopBar onFilter={onFilter} homepage={home} />
 
     <div className='filter-container'>
         {books.map((item, index) => {
@@ -41,7 +50,11 @@ const Filtered = (props) => {
                               
                       <a href={item.volumeInfo.infoLink}>
              
-                          <img  src={item.volumeInfo.imageLinks.thumbnail} />
+                          <img src={
+      item.volumeInfo.imageLinks === undefined
+        ? `${Blank}`
+        : `${item.volumeInfo.imageLinks.thumbnail}`
+  } />
                           </a>
                           
                           </p>
@@ -51,7 +64,7 @@ const Filtered = (props) => {
                                       {item.volumeInfo.title.length < 10 ? item.volumeInfo.title : <p>{item.volumeInfo.title.slice(0,17)}...</p>}
                                     </a>
                                     <a className='author'>
-                                      By: {item.volumeInfo.authors}
+                                      {item.volumeInfo.authors}
                                     </a>
                                     <a className='author'>
                                        {item.volumeInfo.categories}
