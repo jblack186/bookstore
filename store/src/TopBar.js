@@ -82,12 +82,17 @@ const TopBar = (props) => {
   }, [])
 
   const send = (e) => {
+    if (props.onFilter) {
+      window.location.reload();
+    }
+
     history.push('/filter')
   }
 
 
   const changeHandler = (e) => {
     setSearch(e.target.value)
+    localStorage.setItem('search', e.target.value)
   }
   
 
@@ -314,7 +319,7 @@ const TopBar = (props) => {
      
   <form onSubmit={send} className='form'>
       <input onChange={changeHandler} className='input' />
-      <NavLink to='/filtered'><button type='submit' onClick={send}>GO</button></NavLink>
+      <NavLink to='/filtered'><button onClick={send}>GO</button></NavLink>
       </form>
       </div>
 

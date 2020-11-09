@@ -7,6 +7,9 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  padding-top: 70px;
+  padding-bottom: 50px;
+  color: rgb(255, 255, 255, 255)
 
 }
 
@@ -18,11 +21,35 @@
 .filtered-list-img {
   width: 300px;
   height: 350px;
+  margin-bottom: 100px;
+  list-style: none;
+
+}
+
+.filtered-list-img img {
+  width: 200px;
+  height: 250px;
+  box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.1);
+
 }
 
 .filt-card-desc {
   padding-top: 15px;
-  color: white;
   display: flex;
   flex-direction: column;
+  text-align: left;
+  margin: 0 auto;
+  justify-content: flex-start;
+  width: 200px;
+  height: 120px;
+  background-color: #1f2b33;
+  padding-left: 7px;
+  color: rgb(255, 255, 255, 255);
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+  
+}
+
+.pic-anchor {
+  width: 200px;
+  height: 200px;
 }

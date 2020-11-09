@@ -1,3 +1,3 @@
 # bookstore
 
-This application is going to be styled after the audible app. Data will be retirieved through googles book api. Users will be authenticated through google as well. Test again
+This application is styled with vanilla CSS and bootsrap and components from 3rd party libraries. I designed it with inspiration from the audible app. Data was retirieved through googles book api. 
