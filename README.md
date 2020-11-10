@@ -1,3 +1,2 @@
 # bookstore
-
-This application is styled with vanilla CSS and bootsrap and components from 3rd party libraries. I designed it with inspiration from the audible app. Data was retirieved through googles book api. 
+An online bookstore built with a PERN stack. This application is styled with vanilla CSS and bootsrap and components from 3rd party libraries. I designed it with inspiration from the audible app. Data was retirieved through googl's book api. Authentication was set up with nodeJS, express. User information is stored on a postgresql database.
