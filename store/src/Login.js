@@ -76,7 +76,7 @@ const Login = () => {
           placeholder="password"
           onChange={e => onChange(e)}
           className="form-control my-3"/>
-          <button>Register</button>
+          <button>Login</button>
         </form>
       </section>
       <Footer />
