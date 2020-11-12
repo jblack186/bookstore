@@ -3,7 +3,6 @@ import './Homes.css';
 import TopBar from './TopBar';
 import Hero from './img/jeremy-bishop-G9i_plbfDgk-unsplash.jpg';
 import Card from './CardCarousel';
-import Books from './img/bookonshelf .png';
 import Footer from './Footer';
 import {NavLink} from 'react-router-dom';
 
@@ -45,7 +44,6 @@ const Home = (props) => {
       <div className='home-container'>
         <img onClick={closeNav} className="hero" src={Hero} alt="store-hero" />
         <section className='header'>
-          {/* <img className='book-logo' src={Books} alt='book-logo' /> */}
           <h1>The Online Library</h1>
           <p>The bookstore app you've been waiting for. Get lost in a book.</p>
           <NavLink to='/browse'><button>Get Started Here</button></NavLink>

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import Pic from './img/Selection.png';
 import Carousel, {WithStyles} from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from 'axios'
@@ -8,9 +7,7 @@ import Footer from './Footer';
 
 
 const CardCarousel = (props) => {
-  const [library, setLibrary] = useState([]);
   const [books, setBooks] = useState([]);
-  const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState("AIzaSyCnGiOUTd7RBgYr-c-_AzYRmg3fQjaVBO8");
 
 

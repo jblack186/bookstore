@@ -2,7 +2,6 @@ import React from 'react'
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faFacebookF, faInstagram, faLinkedin, faTwitter} from '@fortawesome/free-brands-svg-icons';
-import Selection from './img/Selection.png';
 import SelectionFooter from './img/Selection-footer.png';
 
 

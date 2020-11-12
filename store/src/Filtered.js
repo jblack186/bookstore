@@ -11,7 +11,6 @@ const Filtered = (props) => {
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState("AIzaSyCnGiOUTd7RBgYr-c-_AzYRmg3fQjaVBO8");
   const [home, setHome] = useState();
-  const [error, setError] = useState(false);
   const [onFilter, setOnFilter] = useState(false);
 
   async function searching() {
