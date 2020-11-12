@@ -33,7 +33,6 @@ const TopBar = (props) => {
       });
 
       const parseRes = await res.json();
-      console.log(parseRes[0])
       let userName = parseRes[0].user_name;
       let num = userName.indexOf(" ");
       if (num < 0) {

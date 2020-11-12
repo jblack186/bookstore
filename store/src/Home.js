@@ -34,8 +34,6 @@ const Home = (props) => {
     setIsNavOpenClosed(true);
   }
 
-  console.log(name)
-  console.log('name')
 
 
   return (
