@@ -23,8 +23,6 @@ const Browse = (props) => {
   }
 
   useEffect(() => {
-
-
     setHome(false)
 
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${preferOne}&${apiKey}&maxResults=10&orderBy=newest`)

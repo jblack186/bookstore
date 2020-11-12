@@ -5,12 +5,11 @@ import { faBars, faShoppingCart, faSearch, faWindowClose } from '@fortawesome/fr
 import Selection from './img/Selection.png';
 import axios from 'axios';
 import {NavLink, useHistory} from 'react-router-dom';
-import {DropdownButton, SplitButton, Dropdown, ButtonGroup} from 'react-bootstrap';
+import {SplitButton, Dropdown} from 'react-bootstrap';
 
 const TopBar = (props) => { 
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [search, setSearch] = useState('');
-  const [apiKey, setApiKey] = useState("AIzaSyCnGiOUTd7RBgYr-c-_AzYRmg3fQjaVBO8");
   const [books, setBooks] = useState([]);
   const [home, setHome] = useState();
   const [name, setName] = useState('');
