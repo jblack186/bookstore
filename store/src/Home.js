@@ -43,7 +43,8 @@ const Home = (props) => {
         <img onClick={closeNav} className="hero" src={Hero} alt="store-hero" />
         <section className='header'>
           <h1>The Online Library</h1>
-          <p>The bookstore app you've been waiting for. Get lost in a book.</p>
+          <p>Your online bookstore.</p> 
+          <p className='last-head-para'>Get lost in a book.</p>
           <NavLink to='/browse'><button>Get Started Here</button></NavLink>
         </section>
 
