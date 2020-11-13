@@ -14,7 +14,6 @@ const CardCarousel = (props) => {
   useEffect(() => {
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=The+subject:fantasy&${apiKey}&maxResults=10&orderBy=newest`)
       .then( res => {
-        console.log(res.data.items)
         setBooks(res.data.items)
 
       })

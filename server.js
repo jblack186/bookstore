@@ -4,11 +4,11 @@ const cors = require("cors");
 const path = require("path")
 const PORT = process.env.PORT || 5000;
 const pool = require("./db");
-
+var compression = require("compression");
 
 
 //middleware
-
+app.use(compression());
 app.use(cors());
 app.use(express.json());
 
@@ -17,6 +17,12 @@ if(process.env.NODE_ENV === "production") {
 }
 
 //routes
+
+app.get('*.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
 
 app.use("/choices", require("./routes/choices"));
 
