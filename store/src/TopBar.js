@@ -316,7 +316,7 @@ const TopBar = (props) => {
       </div>        
      
   <form onSubmit={send} className='form'>
-      <input onChange={changeHandler} className='input' />
+      <input onChange={changeHandler} className='input' placeholder='search'/>
       <NavLink to='/filtered'><button onClick={send}>GO</button></NavLink>
       </form>
       </div>
