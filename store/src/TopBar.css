@@ -253,10 +253,12 @@
   .choices {
     width: 100%;
     position: absolute;
-    top: 60px;
+    top: 50px;
     right: 50%;
     margin-right: -50%;
-    
+    background: #243139;
+    padding-bottom: 5px;
+    border-bottom: #1f2b33 solid 2px;
   }
 }
 
