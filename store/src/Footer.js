@@ -13,7 +13,7 @@ const Footer = () => {
         <img style={{width: '150px'}} src={SelectionFooter} alt='footer-logo' />
       </div>
       <div className='footer-icons'>
-      <a className='font-border'>
+      <a style={{color: 'white'}}  href="https://www.facebook.com/jamison.blackwell.3/" target="https://www.facebook.com/jamison.blackwell.3/" className='font-border'>
         <FontAwesomeIcon fa-border className='footer-icon' icon={faFacebookF} />
       </a>
       <a className='font-border'>
